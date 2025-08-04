@@ -48,7 +48,7 @@ const Register = () => {
   };
 
   return (
-    <div className="mx-auto mt-15 p-10 flex items-center justify-center shadow-lg max-w-lg bg-neutral-800 rounded-3xl">
+    <div className="mx-auto mt-8 p-10 flex items-center justify-center shadow-lg max-w-lg bg-neutral-800 rounded-3xl">
     <form onSubmit={handleSubmit} className="flex flex-col items-center justify-center">
         <h2 className="text-2xl font-bold mb-3 text-gray-300">Register Here!</h2>
         <p className="text-sm mt-[-10px] mb-3 text-gray-400">Welcome! Create an account to continue.</p>
@@ -99,7 +99,8 @@ const Register = () => {
 
         <p className="p-6">Have an account? <Link className="text-blue-500" to='/login'>Login Here!</Link></p>
 
-        {error && <p className="text-red-800 mt-4 flex justify-center items-center">{error}</p>}
+        {error && <p className="text-red-800 mb-2 flex justify-center items-center">{error}</p>}
+        <p className="text-gray-500 mt-[-7px]">HashManga</p>
     </form>
 </div>
   );
