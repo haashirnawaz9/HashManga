@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { ArrowLeft, ArrowRight, Home, RotateCcw } from 'lucide-react';
+import React, { useState, useRef, useEffect } from 'react';
+import { ArrowLeft, ArrowRight, Home, Maximize, Minimize } from 'lucide-react';
 
 export const MangaReader = ({
   manga,
@@ -11,14 +11,26 @@ export const MangaReader = ({
   hasPrevChapter
 }) => {
   const [currentPage, setCurrentPage] = useState(0);
-  const [showControls, setShowControls] = useState(true);
+  const [isFullscreen, setIsFullscreen] = useState(false);
+  const readerRef = useRef(null);
+
+  useEffect(() => {
+    setCurrentPage(0); // reset to page 1 when chapter changes
+  }, [chapter]);
+
+  const toggleFullscreen = () => {
+    if (!document.fullscreenElement) {
+      readerRef.current?.requestFullscreen().then(() => setIsFullscreen(true));
+    } else {
+      document.exitFullscreen().then(() => setIsFullscreen(false));
+    }
+  };
 
   const nextPage = () => {
     if (currentPage < chapter.pages.length - 1) {
       setCurrentPage(currentPage + 1);
     } else if (hasNextChapter) {
-      onNextChapter();
-      setCurrentPage(0);
+      onNextChapter(); // currentPage reset by useEffect
     }
   };
 
@@ -26,7 +38,7 @@ export const MangaReader = ({
     if (currentPage > 0) {
       setCurrentPage(currentPage - 1);
     } else if (hasPrevChapter) {
-      onPrevChapter();
+      onPrevChapter(); // currentPage reset by useEffect
     }
   };
 
@@ -42,10 +54,12 @@ export const MangaReader = ({
     }
   };
 
+  const pageProgress = ((currentPage + 1) / chapter.pages.length) * 100;
+
   return (
-    <div className="min-h-screen bg-black">
+    <div ref={readerRef} className="min-h-screen bg-black">
       {/* Header */}
-      <div className={`fixed top-0 left-0 right-0 z-50 bg-gradient-to-b from-black/80 to-transparent transition-opacity duration-300 ${showControls ? 'opacity-100' : 'opacity-0'}`}>
+      <div className="fixed top-0 left-0 right-0 z-50 bg-gradient-to-b from-black/80 to-transparent">
         <div className="flex items-center justify-between p-4">
           <button
             onClick={onBack}
@@ -63,15 +77,19 @@ export const MangaReader = ({
           </div>
 
           <button
-            onClick={() => setShowControls(!showControls)}
+            onClick={toggleFullscreen}
             className="text-white hover:text-red-400 transition-colors"
           >
-            <RotateCcw className="h-5 w-5" />
+            {isFullscreen ? (
+              <Minimize className="h-5 w-5" />
+            ) : (
+              <Maximize className="h-5 w-5" />
+            )}
           </button>
         </div>
       </div>
 
-      {/* Main Content */}
+      {/* Main Image */}
       <div className="flex items-center justify-center min-h-screen pt-16 pb-20">
         <div className="relative max-w-4xl mx-auto">
           <img
@@ -85,9 +103,11 @@ export const MangaReader = ({
           <button
             onClick={prevPage}
             disabled={currentPage === 0 && !hasPrevChapter}
-            className={`absolute left-4 top-1/2 transform -translate-y-1/2 bg-black/50 text-white p-3 rounded-full transition-all duration-300 ${
-              showControls ? 'opacity-100' : 'opacity-0'
-            } ${currentPage === 0 && !hasPrevChapter ? 'opacity-30 cursor-not-allowed' : 'hover:bg-black/70'}`}
+            className={`absolute left-4 top-1/2 transform -translate-y-1/2 bg-black/50 text-white p-3 rounded-full ${
+              currentPage === 0 && !hasPrevChapter
+                ? 'opacity-30 cursor-not-allowed'
+                : 'hover:bg-black/70'
+            }`}
           >
             <ArrowLeft className="h-6 w-6" />
           </button>
@@ -95,9 +115,11 @@ export const MangaReader = ({
           <button
             onClick={nextPage}
             disabled={currentPage === chapter.pages.length - 1 && !hasNextChapter}
-            className={`absolute right-4 top-1/2 transform -translate-y-1/2 bg-black/50 text-white p-3 rounded-full transition-all duration-300 ${
-              showControls ? 'opacity-100' : 'opacity-0'
-            } ${currentPage === chapter.pages.length - 1 && !hasNextChapter ? 'opacity-30 cursor-not-allowed' : 'hover:bg-black/70'}`}
+            className={`absolute right-4 top-1/2 transform -translate-y-1/2 bg-black/50 text-white p-3 rounded-full ${
+              currentPage === chapter.pages.length - 1 && !hasNextChapter
+                ? 'opacity-30 cursor-not-allowed'
+                : 'hover:bg-black/70'
+            }`}
           >
             <ArrowRight className="h-6 w-6" />
           </button>
@@ -105,30 +127,30 @@ export const MangaReader = ({
       </div>
 
       {/* Bottom Controls */}
-      <div className={`fixed bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent transition-opacity duration-300 ${showControls ? 'opacity-100' : 'opacity-0'}`}>
-        <div className="p-4">
+      <div className="fixed bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent">
+        <div className="p-4 space-y-4">
           {/* Progress Bar */}
-          <div className="mb-4">
+          <div>
             <div className="flex items-center justify-between text-white text-sm mb-2">
               <span>Page {currentPage + 1} of {chapter.pages.length}</span>
-              <span>{Math.round(((currentPage + 1) / chapter.pages.length) * 100)}%</span>
+              <span>{Math.round(pageProgress)}%</span>
             </div>
             <div className="w-full bg-gray-700 rounded-full h-2">
               <div
                 className="bg-red-500 h-2 rounded-full transition-all duration-300"
-                style={{ width: `${((currentPage + 1) / chapter.pages.length) * 100}%` }}
+                style={{ width: `${pageProgress}%` }}
               />
             </div>
           </div>
 
           {/* Chapter Navigation */}
-          <div className="flex items-center justify-between">
+          <div className="flex justify-between flex-wrap gap-2">
             <button
               onClick={onPrevChapter}
               disabled={!hasPrevChapter}
               className={`flex items-center space-x-2 px-4 py-2 rounded-lg transition-colors ${
-                hasPrevChapter 
-                  ? 'bg-red-600 text-white hover:bg-red-700' 
+                hasPrevChapter
+                  ? 'bg-red-600 text-white hover:bg-red-700'
                   : 'bg-gray-600 text-gray-400 cursor-not-allowed'
               }`}
             >
@@ -148,8 +170,8 @@ export const MangaReader = ({
               onClick={onNextChapter}
               disabled={!hasNextChapter}
               className={`flex items-center space-x-2 px-4 py-2 rounded-lg transition-colors ${
-                hasNextChapter 
-                  ? 'bg-red-600 text-white hover:bg-red-700' 
+                hasNextChapter
+                  ? 'bg-red-600 text-white hover:bg-red-700'
                   : 'bg-gray-600 text-gray-400 cursor-not-allowed'
               }`}
             >
