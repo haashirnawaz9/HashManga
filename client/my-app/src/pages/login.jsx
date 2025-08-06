@@ -41,7 +41,7 @@ const Login = () => {
       toast.success('Login successful!');
       localStorage.setItem('token', data.token);
       console.log("token: ", data.token)
-      navigate('/protected');
+      navigate('/manga-list');
     } catch (error) {
       setError('Invalid Email/Password');
       toast.error('Invalid Email/Password');

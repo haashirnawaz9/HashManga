@@ -6,7 +6,7 @@ const Home = () => {
     <div>
       <h1>Home</h1>
          <button className="bg-slate-800 rounded-lg p-2">
-          <Link to='/protected'>Get Started</Link>
+          <Link to='/manga-list'>Get Started</Link>
         </button> 
     </div>
   )
