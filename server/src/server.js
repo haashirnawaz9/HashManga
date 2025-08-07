@@ -10,7 +10,11 @@ const PORT = process.env.PORT || 3001
 const app = express();
 MongoDB();
 
-app.use(cors());
+app.use(cors({
+    origin: 'https://hashmanga.netlify.app',
+    credentials: true,
+}));
+
 app.use(express.json())
 
 app.use('/auth', userRouter);
