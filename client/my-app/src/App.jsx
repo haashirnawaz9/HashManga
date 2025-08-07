@@ -7,13 +7,8 @@ import { ToastContainer } from 'react-toastify'
 import Protect from './pages/protect'
 import ProtectedRoute from './components/ProtectedRoute'
 import Header from './components/Header'
-import { useEffect } from 'react'
 
 function App() {
-  useEffect(() => {
-    document.title = "HashManga"
-  })
-
   return (
     <BrowserRouter>
     <Header />

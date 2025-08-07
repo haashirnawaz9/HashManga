@@ -85,7 +85,7 @@ const Login = () => {
             >Login
         </button>
 
-        <p className="p-6">No Account? <Link className="text-blue-500" to='/register'>Register Here!</Link></p>
+        <p className="p-6">No Account? <Link className="text-red-500" to='/register'>Register Here!</Link></p>
 
         {error && <p className="text-red-800 mb-2 flex justify-center items-center">{error}</p>}
         <p className="text-gray-500 mt-[-7px]">HashManga</p>

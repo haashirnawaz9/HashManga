@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useEffect } from 'react';
 import { MangaCard } from '../components/MangaCard';
 import { MangaDetail } from '../components/MangaDetail';
 import { MangaReader } from '../components/MangaReader';
@@ -15,6 +15,10 @@ const Protect = () => {
   const [sortBy, setSortBy] = useState('popularity');
   const [showFilters, setShowFilters] = useState(false);
   const [showMobileMenu, setShowMobileMenu] = useState(false);
+
+  useEffect(() => {
+    document.title = "HashManga | Manga List"
+  }, [])
 
   const allGenres = useMemo(() => {
     const genres = new Set();
@@ -151,6 +155,8 @@ const Protect = () => {
         onSortChange={setSortBy}
         showFilters={showFilters}
         onToggleFilters={() => setShowFilters(!showFilters)}
+        searchQuery={searchQuery}
+        onSearchChange={setSearchQuery}
       />
 
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">

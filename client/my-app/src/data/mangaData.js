@@ -221,7 +221,7 @@ export const mangaData = [
     title: 'Attack on Titan',
     author: 'Hajime Isayama',
     description: 'Humanity fights for survival against giant humanoid Titans behind three massive walls.',
-    coverImage: 'https://images.pexels.com/photos/7015644/pexels-photo-7015644.jpeg?auto=compress&cs=tinysrgb&w=400',
+    coverImage: 'https://ik.imagekit.io/puwfr20gk/Screenshot%202025-08-06%20at%2010.00.28%E2%80%AFPM.png?updatedAt=1754532040516',
     genres: ['Action', 'Drama', 'Fantasy', 'Shounen'],
     status: 'completed',
     rating: 9.0,
