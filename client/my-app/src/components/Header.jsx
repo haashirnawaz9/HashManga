@@ -1,43 +1,38 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { BookOpen, User } from 'lucide-react';
 
 const Header = () => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
+  const [token, setToken] = useState(localStorage.getItem('token'));
   const navigate = useNavigate();
-  const token = localStorage.getItem('token')
+  const dropdownRef = useRef(null);
 
   useEffect(() => {
-    try {
-      localStorage.getItem('token');
-    } catch (error) {
-      console.error('Error accessing localStorage:', error);
-    }
+    // Detect clicks outside dropdown to close it
+    const handleClickOutside = (event) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+        setDropdownOpen(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
 
   const handleLogout = () => {
     try {
       localStorage.removeItem('token');
       setToken(null);
-      navigate('/login');
       setDropdownOpen(false);
+      navigate('/login');
     } catch (error) {
       console.error('Error during logout:', error);
     }
   };
 
-  useEffect(() => {
-    const handleClickOutside = () => {
-      if (dropdownOpen) setDropdownOpen(false);
-    };
-
-    document.addEventListener('click', handleClickOutside);
-    return () => document.removeEventListener('click', handleClickOutside);
-  }, [dropdownOpen]);
-
   return (
     <>
-      {/* Header */}
       <header className="fixed top-0 left-0 w-full backdrop-blur-3xl bg-opacity-95 z-50 shadow-lg p-2">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
           {/* Logo */}
@@ -68,7 +63,7 @@ const Header = () => {
                 </Link>
               </>
             ) : (
-              <div className="relative" onClick={(e) => e.stopPropagation()}>
+              <div className="relative" ref={dropdownRef}>
                 <button
                   onClick={() => setDropdownOpen(!dropdownOpen)}
                   className="w-10 h-10 bg-gradient-to-br from-slate-700 to-slate-800 hover:from-slate-600 hover:to-slate-700 rounded-full flex items-center justify-center border border-slate-600 transition-all duration-200"

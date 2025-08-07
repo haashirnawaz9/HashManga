@@ -14,38 +14,39 @@ const Home = () => {
   }
   return (
     <div className="min-h-screen" style={{ fontFamily: 'Arial, sans-serif', backgroundColor: '#202123', color: 'white' }}>
-    {/* Hero Section */}
-  <section className="relative overflow-hidden py-15 px-5 w-full bg-gradient-to-b from-[#1a1c1f] via-[#202123] to-[#1a1c1f] rounded-3xl mb-15 mt-[-15px]">
+{/* Hero Section */}
+<section className="relative overflow-hidden px-4 py-20 sm:px-6 lg:px-8 w-full bg-gradient-to-b from-[#1a1c1f] via-[#202123] to-[#1a1c1f] rounded-3xl mb-20 mt-[-15px]">
   {/* Blended Background Blobs */}
   <div className="absolute top-[-150px] left-[-100px] w-[400px] h-[400px] bg-rose-500/10 rounded-full blur-[140px] z-0"></div>
   <div className="absolute bottom-[-150px] right-[-100px] w-[400px] h-[400px] bg-pink-600/10 rounded-full blur-[140px] z-0"></div>
 
   {/* Content */}
-  <div className="relative z-10 max-w-4xl mx-auto text-center">
+  <div className="relative z-10 max-w-5xl mx-auto text-center px-4">
     <div className="mb-10">
-      <h1 className="text-6xl md:text-8xl font-extrabold leading-tight mb-6 bg-gradient-to-r from-white via-gray-200 to-gray-400 bg-clip-text text-transparent">
+      <h1 className="text-4xl sm:text-5xl md:text-7xl font-extrabold leading-tight mb-6 bg-gradient-to-r from-white via-gray-200 to-gray-400 bg-clip-text text-transparent break-words">
         Hash<span className="text-rose-500">Manga</span>
       </h1>
-      <div className="w-28 h-1 bg-gradient-to-r from-rose-500 to-pink-600 mx-auto mb-6 rounded-full"></div>
+      <div className="w-24 sm:w-28 h-1 bg-gradient-to-r from-rose-500 to-pink-600 mx-auto mb-6 rounded-full"></div>
     </div>
 
-    <p className="text-xl md:text-2xl text-gray-300 mb-12 max-w-3xl mx-auto leading-relaxed">
-      Discover thousands of manga titles from around the world. Read your favorite series, discover new adventures, 
+    <p className="text-base sm:text-lg md:text-xl text-gray-300 mb-10 sm:mb-12 max-w-3xl mx-auto leading-relaxed">
+      Discover manga titles from around the world. Read your favorite series, discover new adventures, 
       and immerse yourself in captivating stories—all in one place.
     </p>
 
-    <div className="flex justify-center items-center mb-16">
+    <div className="flex justify-center">
       <button
         onClick={handleSubmit}
-        className="group bg-gradient-to-r from-rose-500 to-pink-600 hover:from-rose-600 hover:to-pink-700 px-10 py-5 rounded-full text-white font-semibold text-lg transition-all duration-300 transform hover:scale-105 hover:shadow-2xl flex items-center gap-3"
+        className="group bg-gradient-to-r from-rose-500 to-pink-600 hover:from-rose-600 hover:to-pink-700 px-8 sm:px-10 py-4 sm:py-5 rounded-full text-white font-semibold text-base sm:text-lg transition-all duration-300 transform hover:scale-105 hover:shadow-2xl flex items-center gap-2 sm:gap-3"
       >
-        <Book size={24} />
+        <Book size={22} />
         Start Reading
-        <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
+        <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
       </button>
     </div>
   </div>
 </section>
+
 
 
       {/* Features Grid */}

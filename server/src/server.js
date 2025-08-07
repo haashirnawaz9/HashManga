@@ -15,6 +15,10 @@ app.use(express.json())
 
 app.use('/auth', userRouter);
 
+app.get('/', (req, res) => {
+    res.status(200).send("OK")
+})
+
 app.listen(PORT, () => {
     console.log(`Server is running at PORT ${PORT}`)
 })
