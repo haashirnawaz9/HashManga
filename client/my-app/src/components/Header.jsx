@@ -4,16 +4,14 @@ import { BookOpen, User } from 'lucide-react';
 
 const Header = () => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
-  const [token, setToken] = useState(null);
   const navigate = useNavigate();
+  const token = localStorage.getItem('token')
 
   useEffect(() => {
     try {
-      const storedToken = localStorage.getItem('token');
-      setToken(storedToken);
+      localStorage.getItem('token');
     } catch (error) {
       console.error('Error accessing localStorage:', error);
-      setToken(null);
     }
   }, []);
 

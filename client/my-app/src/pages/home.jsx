@@ -15,7 +15,7 @@ const Home = () => {
   return (
     <div className="min-h-screen" style={{ fontFamily: 'Arial, sans-serif', backgroundColor: '#202123', color: 'white' }}>
     {/* Hero Section */}
-  <section className="relative overflow-hidden py-15 px-6 w-full bg-gradient-to-b from-[#1a1c1f] via-[#202123] to-[#1a1c1f] rounded-3xl mb-15 mt-[-15px]">
+  <section className="relative overflow-hidden py-15 px-5 w-full bg-gradient-to-b from-[#1a1c1f] via-[#202123] to-[#1a1c1f] rounded-3xl mb-15 mt-[-15px]">
   {/* Blended Background Blobs */}
   <div className="absolute top-[-150px] left-[-100px] w-[400px] h-[400px] bg-rose-500/10 rounded-full blur-[140px] z-0"></div>
   <div className="absolute bottom-[-150px] right-[-100px] w-[400px] h-[400px] bg-pink-600/10 rounded-full blur-[140px] z-0"></div>
