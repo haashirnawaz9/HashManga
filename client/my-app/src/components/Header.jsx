@@ -1,15 +1,22 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { BookOpen, User } from 'lucide-react';
 
 const Header = () => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
-  const [token, setToken] = useState(localStorage.getItem('token'));
-  const navigate = useNavigate();
+  const [token, setToken] = useState(null);
   const dropdownRef = useRef(null);
+  const navigate = useNavigate();
+  const location = useLocation();
 
+  // Sync token with localStorage on route change
   useEffect(() => {
-    // Detect clicks outside dropdown to close it
+    const storedToken = localStorage.getItem('token');
+    setToken(storedToken);
+  }, [location]);
+
+  // Close dropdown when clicking outside
+  useEffect(() => {
     const handleClickOutside = (event) => {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
         setDropdownOpen(false);
@@ -20,6 +27,7 @@ const Header = () => {
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
 
+  // Handle logout
   const handleLogout = () => {
     try {
       localStorage.removeItem('token');
@@ -35,6 +43,7 @@ const Header = () => {
     <>
       <header className="fixed top-0 left-0 w-full backdrop-blur-3xl bg-opacity-95 z-50 shadow-lg p-2">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+          
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-3 group">
             <div className="p-1.5 bg-gradient-to-br from-red-500 to-pink-600 rounded-lg group-hover:from-red-400 group-hover:to-pink-500 transition-all duration-200">
@@ -45,7 +54,7 @@ const Header = () => {
             </h1>
           </Link>
 
-          {/* Auth / User */}
+          {/* Authentication */}
           <div className="flex items-center space-x-4">
             {!token ? (
               <>
@@ -89,7 +98,7 @@ const Header = () => {
         </div>
       </header>
 
-      {/* Spacer */}
+      {/* Spacer to push content below header */}
       <div className="h-16" />
     </>
   );
