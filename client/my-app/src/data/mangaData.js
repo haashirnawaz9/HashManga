@@ -400,6 +400,16 @@ export const mangaData = [
           'https://ik.imagekit.io/puwfr20gk/Screenshot%202025-08-11%20at%202.27.07%E2%80%AFPM.png?updatedAt=1754936955905',
           'https://ik.imagekit.io/puwfr20gk/Screenshot%202025-08-11%20at%202.27.22%E2%80%AFPM.png?updatedAt=1754936955886',
           'https://ik.imagekit.io/puwfr20gk/Screenshot%202025-08-11%20at%202.27.32%E2%80%AFPM.png?updatedAt=1754936955888',
+          'https://ik.imagekit.io/puwfr20gk/Screenshot%202025-08-14%20at%202.33.25%E2%80%AFPM.png?updatedAt=1755196510606',
+          'https://ik.imagekit.io/puwfr20gk/Screenshot%202025-08-14%20at%202.33.35%E2%80%AFPM.png?updatedAt=1755196510558',
+          'https://ik.imagekit.io/puwfr20gk/Screenshot%202025-08-14%20at%202.33.43%E2%80%AFPM.png?updatedAt=1755196510470',
+          'https://ik.imagekit.io/puwfr20gk/Screenshot%202025-08-14%20at%202.33.52%E2%80%AFPM.png?updatedAt=1755196510485',
+          'https://ik.imagekit.io/puwfr20gk/Screenshot%202025-08-14%20at%202.34.02%E2%80%AFPM.png?updatedAt=1755196510449',
+          'https://ik.imagekit.io/puwfr20gk/Screenshot%202025-08-14%20at%202.34.11%E2%80%AFPM.png?updatedAt=1755196510597',
+          'https://ik.imagekit.io/puwfr20gk/Screenshot%202025-08-14%20at%202.34.21%E2%80%AFPM.png?updatedAt=1755196510421',
+          'https://ik.imagekit.io/puwfr20gk/Screenshot%202025-08-14%20at%202.34.31%E2%80%AFPM.png?updatedAt=1755196510461',
+          'https://ik.imagekit.io/puwfr20gk/Screenshot%202025-08-14%20at%202.34.40%E2%80%AFPM.png?updatedAt=1755196510794',
+          'https://ik.imagekit.io/puwfr20gk/Screenshot%202025-08-14%20at%202.34.49%E2%80%AFPM.png?updatedAt=1755196510398',
         ],
         releaseDate: '2014-07-07'
       }
