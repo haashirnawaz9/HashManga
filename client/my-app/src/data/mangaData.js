@@ -431,6 +431,11 @@ export const mangaData = [
           'https://ik.imagekit.io/puwfr20gk/Screenshot%202025-08-20%20at%203.56.19%E2%80%AFPM.png?updatedAt=1755719839778',
           'https://ik.imagekit.io/puwfr20gk/Screenshot%202025-08-20%20at%203.56.29%E2%80%AFPM.png?updatedAt=1755719839897',
           'https://ik.imagekit.io/puwfr20gk/Screenshot%202025-08-20%20at%203.56.41%E2%80%AFPM.png?updatedAt=1755719839866',
+          'https://ik.imagekit.io/puwfr20gk/Screenshot%202025-08-21%20at%202.04.39%E2%80%AFPM.png?updatedAt=1755799550338',
+          'https://ik.imagekit.io/puwfr20gk/Screenshot%202025-08-21%20at%202.04.50%E2%80%AFPM.png?updatedAt=1755799551181',
+          'https://ik.imagekit.io/puwfr20gk/Screenshot%202025-08-21%20at%202.05.01%E2%80%AFPM.png?updatedAt=1755799550818',
+          'https://ik.imagekit.io/puwfr20gk/Screenshot%202025-08-21%20at%202.05.17%E2%80%AFPM.png?updatedAt=1755799550335',
+          'https://ik.imagekit.io/puwfr20gk/Screenshot%202025-08-21%20at%202.05.30%E2%80%AFPM.png?updatedAt=1755799550732',
         ],
         releaseDate: '2014-07-07'
       }
