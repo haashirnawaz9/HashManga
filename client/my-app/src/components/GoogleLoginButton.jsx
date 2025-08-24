@@ -6,15 +6,19 @@ export default function GoogleLoginButton() {
 
   useEffect(() => {
     /* global google */
+    if (!window.google) return;
+
     google.accounts.id.initialize({
       client_id: import.meta.env.VITE_GOOGLE_CLIENT_ID,
       callback: async (response) => {
         try {
           const { data } = await axios.post(
-            "https://hashmangaserver.onrender.com/auth/google-login",
+            "https://hashmangaserver.onrender.com/auth/google-login", // or your deployed backend
             { credential: response.credential }
           );
-          console.log("JWT token:", data.token);
+
+          console.log("JWT:", data.token);
+          localStorage.setItem("token", data.token);
         } catch (err) {
           console.error(err);
         }
@@ -27,5 +31,5 @@ export default function GoogleLoginButton() {
     });
   }, []);
 
-  return <div className="mt-6 rounded-3xl" ref={divRef}></div>;
+  return <div ref={divRef}></div>;
 }
