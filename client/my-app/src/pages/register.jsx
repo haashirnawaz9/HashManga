@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
+import GoogleLoginButton from '../components/GoogleLoginButton';
 
 const Register = () => {
   const [form, setForm] = useState({ email: '', password: '' });
@@ -96,6 +97,8 @@ const Register = () => {
             className="mt-6 bg-slate-600 text-white p-2 rounded-md w-24 cursor-pointer"
             >Register
         </button>
+
+        <GoogleLoginButton />
 
         <p className="p-6">Have an account? <Link className="text-red-500" to='/login'>Login Here!</Link></p>
 
