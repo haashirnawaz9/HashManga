@@ -49,7 +49,7 @@ const Register = () => {
   };
 
   return (
-    <div className="mx-auto mt-8 p-10 flex items-center justify-center shadow-lg max-w-lg bg-neutral-800 rounded-3xl">
+    <div className="mx-auto mt-[-35px] p-10 flex items-center justify-center shadow-lg max-w-lg bg-neutral-800 rounded-3xl">
     <form onSubmit={handleSubmit} className="flex flex-col items-center justify-center">
         <h2 className="text-2xl font-bold mb-3 text-gray-300">Register Here!</h2>
         <p className="text-sm mt-[-10px] mb-3 text-gray-400">Welcome! Create an account to continue.</p>

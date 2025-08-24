@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
+import GoogleLoginButton from '../components/GoogleLoginButton';
 
 const Login = () => {
   const [form, setForm] = useState({ email: '', password: '' });
@@ -49,7 +50,7 @@ const Login = () => {
   };
 
   return (
-    <div className="mx-auto mt-8 p-10 flex items-center justify-center shadow-lg max-w-lg bg-neutral-800 rounded-3xl">
+    <div className="mx-auto mt-[-35px] p-10 flex items-center justify-center shadow-lg max-w-lg bg-neutral-800 rounded-3xl">
     <form onSubmit={handleSubmit} className="flex flex-col items-center justify-center">
         <h2 className="text-2xl font-bold mb-3 text-gray-300">Login Here!</h2>
         <p className="text-sm mt-[-10px] mb-3 text-gray-400">Welcome Back! Please sign in to continue.</p>
@@ -84,6 +85,10 @@ const Login = () => {
             className="mt-6 bg-slate-600 text-white p-2 rounded-md w-24 cursor-pointer"
             >Login
         </button>
+
+        <div className="mt-6 rounded-3xl">
+          <GoogleLoginButton />
+        </div>
 
         <p className="p-6">No Account? <Link className="text-red-500" to='/register'>Register Here!</Link></p>
 
