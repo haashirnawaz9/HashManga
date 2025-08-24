@@ -97,8 +97,9 @@ const Register = () => {
             className="mt-6 bg-slate-600 text-white p-2 rounded-md w-24 cursor-pointer"
             >Register
         </button>
-
-        <GoogleLoginButton />
+        <div className="mt-6 rounded-3xl">
+          <GoogleLoginButton />
+        </div>
 
         <p className="p-6">Have an account? <Link className="text-red-500" to='/login'>Login Here!</Link></p>
 
