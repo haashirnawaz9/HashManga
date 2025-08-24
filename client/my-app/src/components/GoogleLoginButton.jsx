@@ -11,7 +11,7 @@ export default function GoogleLoginButton() {
       callback: async (response) => {
         try {
           const { data } = await axios.post(
-            "https://your-backend-domain.com/auth/google-login",
+            "https://hashmangaserver.onrender.com/auth/google-login",
             { credential: response.credential }
           );
           console.log("JWT token:", data.token);
