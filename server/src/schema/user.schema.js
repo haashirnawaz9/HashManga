@@ -12,6 +12,7 @@ const UserSchema = new mongoose.Schema({
     },
     password: {
         type: String, 
+        default: "",
     },
 },
     { timestamps: true }

@@ -1,9 +1,9 @@
-// src/components/GoogleLoginButton.jsx
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 const GoogleLoginButton = () => {
     const navigate = useNavigate();
+
   useEffect(() => {
     /* global google */
     if (window.google) {
@@ -33,6 +33,7 @@ const GoogleLoginButton = () => {
         localStorage.setItem("token", data.token);
         localStorage.setItem("userID", data.userID);
         navigate('/manga-list')
+
       } else {
         console.error("Google login failed:", data);
       }
