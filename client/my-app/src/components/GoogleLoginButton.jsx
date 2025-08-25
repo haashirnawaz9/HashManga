@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 const GoogleLoginButton = () => {
     const navigate = useNavigate();
@@ -33,7 +34,7 @@ const GoogleLoginButton = () => {
         localStorage.setItem("token", data.token);
         localStorage.setItem("userID", data.userID);
         navigate('/manga-list')
-        token.success("Registration Successful!")
+        toast.success("Registration Successful!")
 
       } else {
         console.error("Google login failed:", data);
