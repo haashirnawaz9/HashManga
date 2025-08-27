@@ -5,6 +5,8 @@ import { MangaReader } from '../components/MangaReader';
 import { FilterBar } from '../components/FilterBar';
 import Header from '../components/Header';
 import { mangaData } from '../data/mangaData';
+import Footer from '../components/Footer';
+
 
 const Protect = () => {
   const [currentView, setCurrentView] = useState('home');
@@ -181,7 +183,6 @@ const Protect = () => {
           </div>
         )}
       </main>
-
       <Footer />
     </div>
   );
