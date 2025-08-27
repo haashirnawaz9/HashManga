@@ -181,6 +181,8 @@ const Protect = () => {
           </div>
         )}
       </main>
+
+      <Footer />
     </div>
   );
 };

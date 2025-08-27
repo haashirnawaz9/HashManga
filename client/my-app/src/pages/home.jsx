@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { Book, Search, Bookmark, ArrowRight, Users, Smartphone, Download, Eye, Sparkles } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
+import Footer from '../components/Footer';
 
 const Home = () => {
   const navigate = useNavigate();
@@ -221,6 +222,8 @@ const Home = () => {
           </div>
         </div>
       </section>
+
+      <Footer />
     </div>
   );
 }
