@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Filter, Search, X } from 'lucide-react';
 
+
 export const FilterBar = ({
   genres,
   selectedGenres,
