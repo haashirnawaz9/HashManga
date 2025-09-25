@@ -3,7 +3,6 @@ import { Book, Search, Bookmark, ArrowRight, Users, Smartphone, Download, Eye, S
 import { useNavigate } from 'react-router-dom';
 import Footer from '../components/Footer';
 
-
 const Home = () => {
   const navigate = useNavigate();
 
