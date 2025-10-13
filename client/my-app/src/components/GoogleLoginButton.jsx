@@ -34,7 +34,7 @@ const GoogleLoginButton = () => {
         localStorage.setItem("token", data.token);
         localStorage.setItem("userID", data.userID);
         navigate('/manga-list')
-        toast.success("Registration Successful!")
+        toast.success("Login From Google Successful!")
 
       } else {
         console.error("Google login failed:", data);
