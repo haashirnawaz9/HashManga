@@ -1,6 +1,7 @@
 import React from 'react';
 import { AlertCircle, RefreshCw } from 'lucide-react';
 
+
 export const ErrorMessage = ({ message, onRetry }) => {
   return (
     <div className="flex flex-col items-center justify-center p-8 text-center">
